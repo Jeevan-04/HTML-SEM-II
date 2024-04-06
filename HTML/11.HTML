@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Country Capitals</title>
+<style>
+  #capital {
+    font-weight: bold;
+    font-size: 18px;
+    color: blue;
+  }
+</style>
+</head>
+<body>
+
+<h2>Select a Country:</h2>
+
+<input type="radio" id="USA" name="country" value="USA" onclick="displayCapital()"> <label for="USA">United States of America</label><br>
+<input type="radio" id="UK" name="country" value="UK" onclick="displayCapital()"> <label for="UK">United Kingdom</label><br>
+<input type="radio" id="France" name="country" value="France" onclick="displayCapital()"> <label for="France">France</label><br>
+<input type="radio" id="Germany" name="country" value="Germany" onclick="displayCapital()"> <label for="Germany">Germany</label><br>
+<input type="radio" id="Japan" name="country" value="Japan" onclick="displayCapital()"> <label for="Japan">Japan</label><br>
+
+<p id="capital"></p>
+
+<script>
+  function displayCapital() {
+    var countryRadios = document.getElementsByName("country");
+    var capitalParagraph = document.getElementById("capital");
+    var capital = "";
+
+    for (var i = 0; i < countryRadios.length; i++) {
+      if (countryRadios[i].checked) {
+        switch(countryRadios[i].value) {
+          case "USA":
+            capital = "Washington D.C.";
+            break;
+          case "UK":
+            capital = "London";
+            break;
+          case "France":
+            capital = "Paris";
+            break;
+          case "Germany":
+            capital = "Berlin";
+            break;
+          case "Japan":
+            capital = "Tokyo";
+            break;
+          default:
+            capital = "";
+            break;
+        }
+        break;
+      }
+    }
+
+    capitalParagraph.textContent = "Capital: " + capital;
+  }
+</script>
+
+</body>
+</html>
